@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+bool isSorted(int nums[], int n){
+    for ( int i=0; i<n-1 ; i++){
+        if (nums[i]> nums [ i+1 ]){
+        return false;
+    }
+}
+    return true;
+}
+int main(){
+    int n;
+    cin >> n;
+    int nums[n];
+    for(int i=0 ; i< n ; i++){
+        cin >> nums[i];
+    }
+    if (isSorted(nums,n))
+    cout << "True";
+    else 
+    cout << " False";
+    return 0;
+}
