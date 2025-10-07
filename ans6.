@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main(){
+   int row;
+   int column;
+   cout<< "enter rows-";
+   cin>>row;
+    cout << "enter columns-";
+   cin >> column;
+    int arr[50][50];
+   cout << "Enter elements:\n";
+   for (int i = 0; i < row; i++) {
+       for (int j = 0; j < column; j++) {
+           cin >> arr[i][j];
+       }
+   }
+    int MaxSum=INT_MIN;
+    int MaxRowindex=-1;
+   for (int i = 0; i < row; i++) {
+       int CurrSum=0;
+       for (int j = 0; j < column; j++) {
+           CurrSum+=arr[i][j] ;
+       }
+       if (CurrSum> MaxSum){
+           MaxSum=CurrSum;
+           MaxRowindex=i;
+       }  
+   }
+    cout << MaxRowindex<< "sum" << MaxSum << endl;
+   return 0;
+}
