@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    vector<pair<int, int>> arr(n); 
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i].first;
+        arr[i].second = i; 
+    }
+    int target;
+    cin >> target;
+
+    sort(arr.begin(), arr.end());
+    int left = 0, right = n - 1;
+    while (left < right) {
+        int sum = arr[left].first + arr[right].first;
+
+        if (sum == target) {
+            cout << "Indices (" << arr[left].second << ", " << arr[right].second << ")" << endl;
+            return 0;
+        }
+        else if (sum < target)
+            left++;
+        else
+            right--;
+    }
+    cout << "No two potions " << endl;
+    return 0;
+}
